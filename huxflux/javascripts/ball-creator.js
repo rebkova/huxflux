@@ -20,11 +20,22 @@ function appendBalls(balls) {
     if (balls && balls.length) {
         for (let i = 0; i < balls.length; i++) {
             const ball = createBall(balls[i]);
-            gsap.from(ball, { duration: 1.2, y: -100 + (i * 3), ease: Bounce.easeOut, delay: 0.1 * i });
+            gsap.from(ball, {
+                duration: 1.2,
+                y: -100 + (i * 3),
+                ease: Bounce.easeOut,
+                delay: 0.1 * i
+            });
             ballRow.append(ball);
+
             if (i === balls.length - 1 && called % 10 === 0) {
-                setTimeout(function() {
-                    gsap.to(ball, { duration: 15, rotation: 360 * 3, x: ball.clientWidth * 3, ease: Power0.easeIn });
+                setTimeout(function () {
+                    gsap.to(ball, {
+                        duration: 15,
+                        rotation: 360 * 3,
+                        x: ball.clientWidth * 3,
+                        ease: Power0.easeIn
+                    });
                 }, 3000)
             }
         }
@@ -32,16 +43,17 @@ function appendBalls(balls) {
 }
 
 
-document.querySelector('#huxflux-button').addEventListener('click', function() {
+document.querySelector('#huxflux-button').addEventListener('click', function () {
     appendBalls(huxflux());
 });
 
 //Just for style
-document.querySelectorAll('button').forEach((btn) => btn.addEventListener('mousedown', function(e) {
-    gsap.to(btn, { duration: 0.1, scale: 0.9 });
-}));
+document.querySelectorAll('button')
+    .forEach((btn) => btn.addEventListener('mousedown', function (e) {
+        gsap.to(btn, { duration: 0.1, scale: 0.9 });
+    }));
 
-document.querySelectorAll('button').forEach((btn) => btn.addEventListener('mouseup', function(e) {
+document.querySelectorAll('button').forEach((btn) => btn.addEventListener('mouseup', function (e) {
     gsap.to(btn, { duration: 0.5, scale: 1, ease: Elastic.easeOut.config(1, 0.2) });
 }));
 const huxFlux = document.querySelectorAll(".huxflux");
