@@ -1,41 +1,21 @@
-/**
- * @returns {Number[]} Lista med sju nummer
- */
+
 const huxflux = () => {
 
-    var arrOfNrs = []
-
-    // const randomNr = Math.floor(Math.random() * 35) + 1
-
-
+    const arrOfNrs = []
 
     while (arrOfNrs.length < 7) {
 
+        //not correct for all cases, optimise
         const randomNr = Math.floor(Math.random() * 35) + 1
-
-        console.log(randomNr)
 
         if (!arrOfNrs.includes(randomNr)) {
 
-            // console.log(randomNr)
-
-
             arrOfNrs.push(randomNr)
-
-            console.log(arrOfNrs)
-
         }
-        console.log(arrOfNrs)
 
     }
 
-    console.log(arrOfNrs)
-    // return arrOfNums
-
-
-    return arrOfNrs; // Returnera din lista med nummer här
+    return arrOfNrs
 }
 
-export {
-    huxflux
-};
+export { huxflux };
